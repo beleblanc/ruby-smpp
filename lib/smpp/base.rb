@@ -249,7 +249,7 @@ module Smpp
     private  
     def write_pdu(pdu)
       logger.debug "<- #{pdu.to_human}"
-      hex_debug pdu.data, "<- "
+      
       send_data pdu.data
     end
 
@@ -263,7 +263,7 @@ module Smpp
         else
           logger.debug "-> " + pdu.to_human          
         end
-        hex_debug data, "-> "
+        
       rescue Exception => ex
         logger.error "Exception while reading PDUs: #{ex} in #{ex.backtrace[0]}"
         raise
